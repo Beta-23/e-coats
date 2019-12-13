@@ -2,6 +2,7 @@ import React from 'react';
 
 import './menu-item.styles.scss';
 
+// Functional component
 const MenuItem = ({ title, imageUrl, size }) => (
     <div style={{
         backgroundImage: `url(${imageUrl})`
