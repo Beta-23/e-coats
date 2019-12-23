@@ -9,3 +9,7 @@ a {
     color: rgb(114, 17, 69);
     font-weight: bold;
 }
+
+* {
+    box-sizing: border-box;
+}
