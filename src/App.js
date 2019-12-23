@@ -18,7 +18,6 @@ class App extends React.Component {
   // Preventing JS memory leaks
   unsubscribeFromAuth = null
 
-
   // Messaging between app and firebase when any changes happens
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
@@ -34,7 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path='/' component= {HomePage} />
           <Route path='/shop' component= {ShopPage} />
