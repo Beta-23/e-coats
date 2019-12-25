@@ -12,6 +12,13 @@ const config = {
     appId: "1:556190849140:web:c43083806429453117d921",
     measurementId: "G-GWXS761F09"
   };
+  // async api for the user object, passing in userAuth and other data
+  export const createUserProfileDocument = async (userAuth, additionalData) => {
+    if (!userAuth) return;
+
+    console.log(firestore.doc('users/112223344444'));
+
+  };
 
   firebase.initializeApp(config);
 
