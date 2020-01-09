@@ -18,7 +18,7 @@ const CartDropdown = ({cartItems}) => (
                     />
                 ))
             ) : (
-                <span className='empty-message'>Your Cart is Empty!</span>
+                <span className='empty-message'>Your Cart Is Empty!</span>
             )}
         </div>
         <CustomButton>CHECK OUT</CustomButton>
