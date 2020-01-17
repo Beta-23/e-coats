@@ -7,3 +7,5 @@ export const selectCollections = createSelector(
     [selectShop],
     shop => shop.collections
   );
+
+  
