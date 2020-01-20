@@ -35,11 +35,16 @@ const CheckoutPage = ({ cartItems, total}) => (
         {cartItems.map(cartItem => (
                 <CheckoutItem key={cartItem.id} cartItem={cartItem} />
             ))}
-        <div className='total'>
-            <span>TOTAL: ${total}</span>
+        <div className='total'>TOTAL: ${total}</div>
+                <br />
+                <div className='test-warning'>
+                &#9758; Please Use The Following Test Credit Card for Payment*
+                </div>
+                <br />
+                4242 4242 4242 4242 - Exp: 01/20 - 123 CVV: 123
+                
                 <StripeCheckoutButton price={total} />
         </div>
-    </div>
 );
 
 const mapStateToProps = createStructuredSelector({
