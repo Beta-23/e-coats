@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
