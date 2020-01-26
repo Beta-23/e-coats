@@ -22,7 +22,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
           <CartItem key={cartItem.id} item={cartItem} />
         ))
       ) : (
-        <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
+        <EmptyMessageContainer>Your Cart Is Empty!</EmptyMessageContainer>
       )}
     </CartItemsContainer>
     <CartDropdownButton
@@ -31,7 +31,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
         dispatch(toggleCartHidden());
       }}
     >
-      GO TO CHECKOUT
+      CHECKOUT NOW
     </CartDropdownButton>
   </CartDropdownContainer>
 );
