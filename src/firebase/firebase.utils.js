@@ -38,7 +38,10 @@ const config = {
     return userRef;
   };
 
-  firebase.initializeApp(config);
+  export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
+    const collectionRef = firestore.collection(collectionKey);
+    console.log(collectionRef);
+  };
 
   export const auth = firebase.auth();
   export const firestore = firebase.firestore();

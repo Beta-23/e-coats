@@ -13,10 +13,12 @@ import CheckoutPage from './pages/checkout/checkout.component';
 
 import Header from './components/header/header.component';
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument, addCollectionAndDocuments } from './firebase/firebase.utils';
 
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
+
+import { selectCollectionsForPreview } from './redux/shop/shop.selectors';
 
 // Switch renders the first matched path
 class App extends React.Component {
@@ -26,11 +28,11 @@ class App extends React.Component {
   // Messaging between app and firebase when any changes happens
   componentDidMount() {
 
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser, collectionsArray } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-
+        // listens for changes in snapShot or doc object updates and updates redux reducer
         userRef.onSnapshot(snapShot => {
           setCurrentUser({
             id: snapShot.id,
@@ -40,6 +42,7 @@ class App extends React.Component {
       }
       else {
         setCurrentUser(userAuth);
+        addCollectionAndDocuments('collections', collectionsArray);
       }
     });
   }
@@ -74,7 +77,9 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  collectionsArray: selectCollectionsForPreview,
+
 });
 
 const mapDispatchToProps = dispatch => ({
