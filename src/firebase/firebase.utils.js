@@ -3,15 +3,18 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-    apiKey: "AIzaSyAOnP1uqoZdWgPSHJNGMe2S5vlRISXipK8",
-    authDomain: "e-coats.firebaseapp.com",
-    databaseURL: "https://e-coats.firebaseio.com",
-    projectId: "e-coats",
-    storageBucket: "e-coats.appspot.com",
-    messagingSenderId: "556190849140",
-    appId: "1:556190849140:web:c43083806429453117d921",
-    measurementId: "G-GWXS761F09"
-  };
+  apiKey: "AIzaSyAOnP1uqoZdWgPSHJNGMe2S5vlRISXipK8",
+  authDomain: "e-coats.firebaseapp.com",
+  databaseURL: "https://e-coats.firebaseio.com",
+  projectId: "e-coats",
+  storageBucket: "e-coats.appspot.com",
+  messagingSenderId: "556190849140",
+  appId: "1:556190849140:web:c43083806429453117d921",
+  measurementId: "G-GWXS761F09"
+};
+
+firebase.initializeApp(config)
+
   // async api for the user object, passing in userAuth and other data
   export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
