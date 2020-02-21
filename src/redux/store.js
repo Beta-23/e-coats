@@ -6,9 +6,12 @@ import { persistStore } from 'redux-persist';
 // Middlewares logger from redux
 import logger from 'redux-logger';
 
+// Middlewares thunk for redux store
+import thunk from 'redux-thunk';
+
 import rootReducer from './root-reducer';
 
-const middlewares = [];
+const middlewares = [thunk];
 // checks wheather in develpoment or production to call logger middleware
 if (process.env.NODE_ENV === 'development') {
     middlewares.push(logger);
