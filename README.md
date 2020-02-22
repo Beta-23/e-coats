@@ -16,6 +16,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+## Adding Dependencies and Redux Middleware
+
+#### `"redux-thunk": "2.x"`
+#### `yarn add redux-thunk`
+#### `"serialize-javascript": "^2.1.1"`
+
+
 ### `yarn add styled-components`
 
 CSS in JS https://github.com/styled-components/styled-components
