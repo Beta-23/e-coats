@@ -2,7 +2,7 @@ import { takeEvery } from 'redux-saga/effects';
 
 import ShopActionTypes from './shop.types';
 
-// Saga
+// Saga to handle async
 export function* fetchCollectionsAsync() {
     yield console.log('I have fired');
 }
