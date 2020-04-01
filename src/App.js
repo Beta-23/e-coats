@@ -28,21 +28,22 @@ class App extends React.Component {
   componentDidMount() {
 
     const { setCurrentUser } = this.props;
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-        // listens for changes in snapShot or doc object updates and updates redux reducer
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data()
-            })
-          });
-      }
-      else {
-        setCurrentUser(userAuth);
-      }
-    });
+
+    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    //   if (userAuth) {
+    //     const userRef = await createUserProfileDocument(userAuth);
+    //     // listens for changes in snapShot or doc object updates and updates redux reducer
+    //     userRef.onSnapshot(snapShot => {
+    //       setCurrentUser({
+    //         id: snapShot.id,
+    //         ...snapShot.data()
+    //         })
+    //       });
+    //   }
+    //   else {
+    //     setCurrentUser(userAuth);
+    //   }
+    // });
   }
 
   // LifeCycle method Close the subscrition
