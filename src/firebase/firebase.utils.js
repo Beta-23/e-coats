@@ -75,10 +75,10 @@ firebase.initializeApp(config)
   export const auth = firebase.auth();
   export const firestore = firebase.firestore();
 
-  const provider = new firebase.auth.GoogleAuthProvider();
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
   // Get access to the google popup when the GoogleAuthProvider runs for auth and signin
-  provider.setCustomParameters({ prompt: 'select_account' });
+  googleProvider.setCustomParameters({ prompt: 'select_account' });
 
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export default firebase;
