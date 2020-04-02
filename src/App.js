@@ -13,37 +13,18 @@ import CheckoutPage from './pages/checkout/checkout.component';
 
 import Header from './components/header/header.component';
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-
-import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
-
+import { checkUserSession } from './redux/user/user.actions';
 
 // Switch renders the first matched path
 class App extends React.Component {
   // Preventing JS memory leaks
-  unsubscribeFromAuth = null
+  unsubscribeFromAuth = null;
 
   // Messaging between app and firebase when any changes happens
   componentDidMount() {
-
-    const { setCurrentUser } = this.props;
-
-    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-    //   if (userAuth) {
-    //     const userRef = await createUserProfileDocument(userAuth);
-    //     // listens for changes in snapShot or doc object updates and updates redux reducer
-    //     userRef.onSnapshot(snapShot => {
-    //       setCurrentUser({
-    //         id: snapShot.id,
-    //         ...snapShot.data()
-    //         })
-    //       });
-    //   }
-    //   else {
-    //     setCurrentUser(userAuth);
-    //   }
-    // });
+    const { checkUserSession } = this.props;
+      checkUserSession();
   }
 
   // LifeCycle method Close the subscrition
@@ -80,10 +61,10 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  checkUserSession: () => dispatch(checkUserSession())
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps)
-  (App);
+  mapDispatchToProps
+)(App);
