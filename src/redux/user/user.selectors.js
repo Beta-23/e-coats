@@ -4,6 +4,6 @@ const selectUser = state => state.user;
 
 // memoize selector
 export const selectCurrentUser = createSelector(
-    [selectUser],
-    (user) => user.currentUser
-  );
+  [selectUser],
+  user => user.currentUser
+);
