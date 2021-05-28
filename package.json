@@ -10,6 +10,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "acorn": "^7.1.1",
+    "browserslist": "^4.16.5",
     "dot-prop": "^5.1.1",
     "elliptic": "^6.5.4",
     "firebase": "7.14.2",
